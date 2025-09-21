@@ -26,12 +26,12 @@ Search and explore cryptocurrencies with real-time data and clean UI.
 [Click Here](https://crypto-tracker-react-tailwind.netlify.app/)
 
 ---
-## Screenshots
+# Screenshots
 
-# Home Page
+## Home Page
 ![alt text](image.png)
 
-# Details Page
+## Details Page
 ![alt text](image-1.png)
 ---
 
