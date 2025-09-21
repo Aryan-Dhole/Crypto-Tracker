@@ -1,16 +1,16 @@
-import { useParams } from "react-router-dom";
+import { useParams, Navigate, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react"
 
 export default function CoinDetail() {
     const { id } = useParams();
     const [coin, setCoin] = useState(null)
     const [loading, setLoading] = useState(true)
+    const navigate = useNavigate()
     useEffect(() => {
         const fetchCoin = async () => {
 
             const res = await fetch(`https://api.coingecko.com/api/v3/coins/${id}`)
             const data = await res.json()
-            console.log(data);
             setCoin(data)
             setLoading(false)
 
@@ -33,7 +33,7 @@ export default function CoinDetail() {
                 <div className="max-w-3xl mx-auto p-4">
                     {/* Header skeleton: logo + name/symbol */}
                     <div className="flex items-center gap-3 mb-6">
-                        <div className="w-30 h-30 rounded-full bg-gray-800 animate-pulse" />
+                        <div className="w-30 h-30 rounded-full bg-gray-800 animate-bounce" />
                         <div className="space-y-2">
                             <div className="h-5 w-40 bg-gray-800 rounded animate-pulse" />
                             <div className="h-4 w-24 bg-gray-800 rounded animate-pulse" />
@@ -65,7 +65,13 @@ export default function CoinDetail() {
                 </div>
             </div>
         ) : (
-            <div className="bg-gray-900 text-white min-h-screen p-16">
+            <div className="bg-gray-900 text-white min-h-screen p-8">
+                <button
+                    onClick={() => navigate(-1)}
+                    className="mb-4 px-6 py-3 bg-gray-700 rounded-2xl hover:bg-gray-600 hover:scale-105 transition duration-200"
+                >
+                    ← Back
+                </button>
                 <div className="max-w-3xl mx-auto p-4">
                     {/* Header: logo, name, symbol */}
                     <div className="flex items-center gap-3 mb-12">
