@@ -232,7 +232,7 @@ export default function CoinDetail() {
                     </div>
 
                     <div className="flex gap-2 my-3">
-                        {[1, 7, 30].map(d => (
+                        {[1, 7, 30, 90].map(d => (
                             <button
                                 key={d}
                                 onClick={() => setDays(d)}
