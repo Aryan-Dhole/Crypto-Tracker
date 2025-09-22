@@ -1,31 +1,35 @@
-# 💰 Crypto Tracker (React + Vite + Tailwind)
+# 💹 Crypto Tracker (React + Vite + Tailwind + Recharts)
 
-A simple yet polished crypto tracking app built with **React**, **Vite**, and **TailwindCSS**, powered by the **CoinGecko API**.  
-Search and explore cryptocurrencies with real-time data and clean UI.
+A modern **cryptocurrency tracking app** built with **React**, **Vite**, and **TailwindCSS**, powered by the **CoinGecko API**.  
+Search, explore, and dive into real-time crypto data with a clean UI and smooth UX.  
 
 ---
 
 ## ✨ Features
-- 🔍 **Live Crypto Data** – fetches real-time prices, market cap, highs/lows  
-- 📊 **Coin Details Page** – logo, name, price, 24h change (green/red), market cap, high/low  
-- ⚡ **Skeleton Loaders** – modern UX while fetching API data  
-- 🎨 **Responsive UI** – built with Tailwind for a sleek, mobile-first design  
-- 🚀 **Fast & Lightweight** – powered by Vite for instant builds  
+- 🔍 **Search coins** instantly by name or symbol  
+- 📊 **Market stats** (price, market cap, volume, rank)  
+- 📈 **Interactive price history chart** (powered by Recharts)  
+- 🦴 **Skeleton loaders** for a professional loading state  
+- 🎨 Fully responsive, polished UI with TailwindCSS  
 
 ---
 
 ## 🛠️ Tech Stack
-- [React](https://react.dev/) – Component-based UI  
-- [Vite](https://vitejs.dev/) – Next-gen build tool  
+- [React](https://react.dev/) – UI library  
+- [Vite](https://vitejs.dev/) – Blazing fast dev/build tool  
 - [TailwindCSS](https://tailwindcss.com/) – Utility-first styling  
-- [CoinGecko API](https://www.coingecko.com/) – Free crypto data  
+- [Recharts](https://recharts.org/en-US/) – Simple charting library for React  
+- [CoinGecko API](https://www.coingecko.com/en/api) – Free crypto market data  
 
 ---
 
 ## 🌍 Live Demo
-[Click Here](https://crypto-tracker-react-tailwind.netlify.app/)
+[Click Here](https://crypto-tracker-react-tailwind.netlify.app/) 
 
 ---
+
+
+
 # Screenshots
 
 ## Home Page
@@ -36,6 +40,10 @@ Search and explore cryptocurrencies with real-time data and clean UI.
 ---
 
 ## 📌 Notes
-- Market cap formatted into M/B/T for readability  
-- % change in price is shown in **green/red** for clarity  
-- Built as a part of my **100+ days React grind** and shipped daily progress 🚀  
+- Search works across all listed coins (case insensitive).  
+- Charts display **7-day price history** (more ranges coming soon).  
+- Responsive design for desktop + mobile users.  
+
+---
+
+© MIT LICENSE 

@@ -5,11 +5,12 @@ function Home() {
 
     const [loading, setLoading] = useState(true)
     const [coins, setCoins] = useState([])
+    const [search, setSearch] = useState("")
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false")
+                const res = await fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=20&page=1&sparkline=false")
 
                 const data = await res.json()
                 setCoins(data)
@@ -22,6 +23,14 @@ function Home() {
         fetchData()
     }, [])
 
+
+    const filterCoins = coins.filter(
+        (coin) =>
+            coin.name.toLowerCase().includes(search.toLowerCase()) ||
+            coin.symbol.toLowerCase().includes(search.toLowerCase())
+    )
+
+
     function formatMarketCap(num) {
         if (num >= 1e12) return (num / 1e12).toFixed(3) + " T"; // Trillion
         if (num >= 1e9) return (num / 1e9).toFixed(3) + " B";  // Billion
@@ -33,7 +42,14 @@ function Home() {
     return (
         <div className="bg-gray-900 min-h-screen p-8 text-white">
             <h1 className="text-3xl text-center mb-12 font-bold">Crypto Tracker</h1>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8">
+            <div className="flex justify-center mb-12">
+                <input type="text"
+                    className="px-8 py-2 bg-gray-800 rounded-lg mb-6 border w-300"
+                    placeholder="Search coin..."
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)} />
+            </div>
+            <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-5 gap-8">
                 {loading ? (
                     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 col-span-full">
                         {Array.from({ length: 8 }).map((_, id) => (
@@ -48,7 +64,7 @@ function Home() {
                         ))}
                     </div>
                 ) : (
-                    coins.map((coin) => (
+                    filterCoins.map((coin) => (
                         <Link
                             key={coin.id}
                             to={`/coin/${coin.id}`}
@@ -66,7 +82,7 @@ function Home() {
                             <p className={`text-lg text-center italic mb-2 ${coin.ath_change_percentage
                                 > 0 ? "text-green-400" : "text-red-400"}`}>{coin.ath_change_percentage.toFixed(2)}%
                             </p>
-                            <p className="text-sm font-semibold text-gray-300 text-center">{formatMarketCap(coin.market_cap)}</p>
+                            <p className="text-md font-bold text-gray-300 text-center">{formatMarketCap(coin.market_cap)}</p>
                         </Link>
                     )
                     )
