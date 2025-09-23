@@ -142,6 +142,7 @@ export default function CoinDetail() {
                             <div className="h-7 w-32 bg-gray-800 rounded animate-pulse" />
                         </div>
                     </div>
+                    <div className="w-full h-64 bg-gray-800 rounded animate-pulse mt-12" />
                 </div>
             </div>
         ) : (
