@@ -41,7 +41,7 @@ function Home() {
 
     return (
         <div className="bg-gray-900 min-h-screen p-8 text-white">
-            <h1 className="text-3xl text-center mb-12 font-bold">Crypto Tracker</h1>
+            <h1 className="text-3xl text-center mb-12 font-bold">Bhadwa Tracker</h1>
             <div className="flex justify-center mb-12">
                 <input type="text"
                     className="px-8 py-2 bg-gray-800 rounded-lg mb-6 border w-300"
